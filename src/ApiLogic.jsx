@@ -1,9 +1,12 @@
 // Define BASE_URL and API_KEY here
+const API_KEY = "9cdc16378e5f4de191c3dab8c2fb20f1";
+const BASE_URL = "https://api.spoonacular.com/recipes";
 
-async function SearchRecipes(query){  
+
+async function SearchRecipes(query, number){  
     try {
         const response = await fetch(
-        `${BASE_URL}/complexSearch?query=${query}&number=5&addRecipeInformation=true&apiKey=${API_KEY}`
+        `${BASE_URL}/complexSearch?query=${query}&number=${number}&addRecipeInformation=true&apiKey=${API_KEY}`
         );
 
         if (!response.ok) {
@@ -18,10 +21,9 @@ async function SearchRecipes(query){
     }
 }
 
-export default async function handleSearch(query) {
+export default async function handleSearch(query, number) {
     if(query){
-        const data = await SearchRecipes(query);
-        // console.log(data)
+        const data = await SearchRecipes(query, number);
         if(data && Array.isArray(data)){
             return data;
         }
