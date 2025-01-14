@@ -1,29 +1,27 @@
+export default function CardRecipe({ recipe, key }) {
+    var title = recipe.title; 
+    var image = recipe.image;
+    var sourceUrl = recipe.sourceUrl; 
+    console.log(sourceUrl);
 
-
-export default function CardRecipe({ id, title, image }) {
+    const redirect = () => {
+      window.location.href = sourceUrl;
+    };
 
     return(
-        <Card className="overflow-hidden">
-      <CardHeader>
-        <CardTitle className="text-lg">{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-48 object-cover rounded-md"
-        />
-      </CardContent>
-      <CardFooter>
-        <Button
-          variant="outline"
-          onClick={() =>
-            window.open(`https://spoonacular.com/recipes/${id}`, "_blank")
-          }
-        >
-          View Recipe
-        </Button>
-      </CardFooter>
-    </Card>
+      <div className="overflow-hidden">
+        <div>
+          <h2 className="text-lg">{title}</h2>
+        </div>
+        <div>
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-48 object-cover rounded-md"/>
+        </div>
+        <div>
+          <button onClick={redirect}>View Recipe</button> 
+        </div>
+      </div>
     );
 }
