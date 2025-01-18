@@ -1,6 +1,4 @@
 // Define BASE_URL and API_KEY here
-const API_KEY = "9cdc16378e5f4de191c3dab8c2fb20f1";
-const BASE_URL = "https://api.spoonacular.com/recipes";
 
 
 async function SearchRecipes(query, number){  
